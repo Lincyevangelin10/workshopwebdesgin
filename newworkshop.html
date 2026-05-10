@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MASTER CLASS ON AI VOICE AGENTS | Menmozhi Technologies</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#050816;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    .bg-animation{
+      position:fixed;
+      width:100%;
+      height:100%;
+      z-index:-1;
+      background:linear-gradient(135deg,#050816,#0b1b42,#081124);
+    }
+
+    .circle{
+      position:absolute;
+      border-radius:50%;
+      background:rgba(0,255,255,0.1);
+      animation:float 12s infinite linear;
+    }
+
+    .circle:nth-child(1){width:200px;height:200px;top:10%;left:10%;}
+    .circle:nth-child(2){width:300px;height:300px;bottom:5%;right:5%;}
+    .circle:nth-child(3){width:150px;height:150px;top:60%;left:40%;}
+
+    @keyframes float{
+      0%{transform:translateY(0px) rotate(0deg);}
+      50%{transform:translateY(-40px) rotate(180deg);}
+      100%{transform:translateY(0px) rotate(360deg);}
+    }
+
+    header{
+      width:100%;
+      padding:20px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:fixed;
+      top:0;
+      z-index:1000;
+      backdrop-filter:blur(10px);
+      background:rgba(0,0,0,0.3);
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .logo img{
+      width:60px;
+      height:60px;
+      object-fit:contain;
+      border-radius:50%;
+      background:white;
+      padding:5px;
+    }
+
+    .logo h2{
+      font-size:1.4rem;
+      color:#00ffff;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:25px;
+      transition:0.3s;
+      font-weight:500;
+    }
+
+    nav a:hover{
+      color:#00ffff;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:120px 10% 50px;
+      position:relative;
+    }
+
+    .hero-content h1{
+      font-size:4rem;
+      line-height:1.2;
+      font-weight:800;
+      background:linear-gradient(90deg,#00ffff,#00ff95);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation:glow 2s infinite alternate;
+    }
+
+    @keyframes glow{
+      from{text-shadow:0 0 10px #00ffff;}
+      to{text-shadow:0 0 30px #00ff95;}
+    }
+
+    .hero-content p{
+      margin-top:20px;
+      font-size:1.2rem;
+      color:#ddd;
+      line-height:1.8;
+    }
+
+    .event-badge{
+      display:inline-block;
+      margin-top:25px;
+      padding:12px 30px;
+      background:#00ffff;
+      color:#000;
+      border-radius:50px;
+      font-weight:700;
+      animation:pulse 1.5s infinite;
+    }
+
+    @keyframes pulse{
+      0%{transform:scale(1);}
+      50%{transform:scale(1.08);}
+      100%{transform:scale(1);}
+    }
+
+    .btn-group{
+      margin-top:35px;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:15px 35px;
+      border:none;
+      border-radius:50px;
+      text-decoration:none;
+      font-weight:700;
+      transition:0.4s;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .primary-btn{
+      background:#00ffff;
+      color:#000;
+    }
+
+    .primary-btn:hover{
+      transform:translateY(-5px);
+      box-shadow:0 0 25px #00ffff;
+    }
+
+    .secondary-btn{
+      border:2px solid #00ffff;
+      color:#00ffff;
+    }
+
+    .secondary-btn:hover{
+      background:#00ffff;
+      color:#000;
+    }
+
+    section{
+      padding:90px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:2.8rem;
+      margin-bottom:50px;
+      color:#00ffff;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.1);
+      padding:30px;
+      border-radius:25px;
+      transition:0.4s;
+      backdrop-filter:blur(10px);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 0 25px rgba(0,255,255,0.5);
+    }
+
+    .card i{
+      font-size:2rem;
+      color:#00ffff;
+      margin-bottom:15px;
+    }
+
+    .card h3{
+      margin-bottom:12px;
+      font-size:1.3rem;
+    }
+
+    .event-details{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+      margin-top:30px;
+    }
+
+    .detail-box{
+      background:#081124;
+      padding:25px;
+      border-radius:20px;
+      border-left:5px solid #00ffff;
+    }
+
+    .detail-box h4{
+      color:#00ffff;
+      margin-bottom:10px;
+    }
+
+    .registration-section{
+      background:linear-gradient(135deg,#071021,#091b3f);
+      border-radius:30px;
+      padding:60px 40px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .registration-form{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-top:40px;
+    }
+
+    .registration-form input,
+    .registration-form select,
+    .registration-form textarea{
+      width:100%;
+      padding:15px;
+      border:none;
+      border-radius:12px;
+      background:rgba(255,255,255,0.08);
+      color:white;
+      outline:none;
+      font-size:1rem;
+    }
+
+    .registration-form textarea{
+      grid-column:span 2;
+      resize:none;
+    }
+
+    .registration-form button{
+      grid-column:span 2;
+      padding:16px;
+      border:none;
+      border-radius:50px;
+      background:#00ffff;
+      color:#000;
+      font-size:1.1rem;
+      font-weight:700;
+      cursor:pointer;
+      transition:0.4s;
+    }
+
+    .registration-form button:hover{
+      box-shadow:0 0 30px #00ffff;
+      transform:translateY(-5px);
+    }
+
+    .popup-register{
+      position:fixed;
+      bottom:30px;
+      left:30px;
+      background:#00ffff;
+      color:#000;
+      padding:18px 25px;
+      border-radius:18px;
+      font-weight:700;
+      z-index:999;
+      display:none;
+      animation:slideUp 0.8s ease;
+    }
+
+    @keyframes slideUp{
+      from{transform:translateY(100px);opacity:0;}
+      to{transform:translateY(0);opacity:1;}
+    }
+
+    .floating-icons{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      display:flex;
+      flex-direction:column;
+      gap:15px;
+      z-index:999;
+    }
+
+    .floating-icons a{
+      width:60px;
+      height:60px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      border-radius:50%;
+      color:white;
+      font-size:1.6rem;
+      text-decoration:none;
+      transition:0.4s;
+    }
+
+    .whatsapp{
+      background:#25D366;
+    }
+
+    .instagram{
+      background:linear-gradient(45deg,#f09433,#dc2743,#bc1888);
+    }
+
+    .floating-icons a:hover{
+      transform:scale(1.1);
+    }
+
+    footer{
+      text-align:center;
+      padding:35px;
+      background:#02040b;
+      margin-top:60px;
+      color:#bbb;
+    }
+
+    .certificate{
+      margin-top:30px;
+      background:rgba(0,255,255,0.08);
+      padding:25px;
+      border-radius:20px;
+      text-align:center;
+      border:1px solid rgba(0,255,255,0.2);
+    }
+
+    @media(max-width:900px){
+      .hero-content h1{
+        font-size:2.6rem;
+      }
+
+      nav{
+        display:none;
+      }
+
+      .registration-form{
+        grid-template-columns:1fr;
+      }
+
+      .registration-form textarea,
+      .registration-form button{
+        grid-column:span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-animation">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+
+  <header>
+    <div class="logo">
+      <!-- Official Menmozhi Technologies Logo -->
+      <img src="https://www.menmozhi.com/wp-content/uploads/2024/01/cropped-Menmozhi-Logo.png" alt="Menmozhi Technologies Logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png'">
+      <h2>Menmozhi Technologies</h2>
+    </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#sessions">Sessions</a>
+      <a href="#register">Register</a>
+      <a href="https://www.menmozhi.com" target="_blank">Website</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="event-badge">🔥 LIMITED SEATS AVAILABLE</div>
+      <h1>MASTER CLASS ON <br> AI VOICE AGENTS</h1>
+      <p>
+        Join the biggest AI learning experience by Menmozhi Technologies.<br>
+        Learn Voice AI, RAG AI and future AI technologies with industry experts.
+      </p>
+
+      <div class="btn-group">
+        <a href="#register" class="btn primary-btn">
+          <i class="fa-solid fa-ticket"></i> Register Now
+        </a>
+
+        <a href="https://www.menmozhi.com" target="_blank" class="btn secondary-btn">
+          <i class="fa-solid fa-globe"></i> Visit Website
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">Event Details</h2>
+
+    <div class="event-details">
+      <div class="detail-box">
+        <h4>Date</h4>
+        <p>14th May 2026</p>
+      </div>
+
+      <div class="detail-box">
+        <h4>Timing</h4>
+        <p>Morning 10:00 AM to 1:00 PM</p>
+      </div>
+
+      <div class="detail-box">
+        <h4>Location</h4>
+        <p>Thillai Nagar 1st Cross,<br>Near Salai Road,<br>Tiruchirappalli</p>
+      </div>
+
+      <div class="detail-box">
+        <h4>Mode</h4>
+        <p>Online & Offline</p>
+      </div>
+
+      <div class="detail-box">
+        <h4>Registration Fee</h4>
+        <p>₹190 Only</p>
+      </div>
+
+      <div class="detail-box">
+        <h4>Certificate</h4>
+        <p>Participation Certificate Provided</p>
+      </div>
+    </div>
+
+    <div class="certificate">
+      <h3>🎓 Certificate & Refreshments Included</h3>
+      <p>Every registered participant will receive a professional participation certificate and refreshments.</p>
+    </div>
+  </section>
+
+  <section id="sessions">
+    <h2 class="section-title">Sessions Covered</h2>
+
+    <div class="cards">
+      <div class="card">
+        <i class="fa-solid fa-microphone-lines"></i>
+        <h3>VOICE AI</h3>
+        <p>Build advanced AI voice assistants and speech-based applications.</p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-brain"></i>
+        <h3>RAG AI</h3>
+        <p>Learn Retrieval-Augmented Generation and modern AI systems.</p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-robot"></i>
+        <h3>Future AI Tools</h3>
+        <p>Explore real-world AI tools, automation and AI business opportunities.</p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-laptop-code"></i>
+        <h3>Live Demonstration</h3>
+        <p>Hands-on live sessions and practical AI implementation guidance.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Who Can Participate?</h2>
+
+    <div class="cards">
+      <div class="card">
+        <i class="fa-solid fa-user-graduate"></i>
+        <h3>College Students</h3>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-school"></i>
+        <h3>School Students</h3>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-building"></i>
+        <h3>Industry Members</h3>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-chalkboard-user"></i>
+        <h3>Faculty Members</h3>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-lightbulb"></i>
+        <h3>Entrepreneurs</h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="register">
+    <div class="registration-section">
+      <h2 class="section-title">Register For The Event</h2>
+
+      <form class="registration-form" id="registrationForm">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Phone Number" required>
+
+        <select required>
+          <option value="">Select Category</option>
+          <option>College Student</option>
+          <option>School Student</option>
+          <option>Faculty</option>
+          <option>Industry Member</option>
+          <option>Entrepreneur</option>
+        </select>
+
+        <textarea rows="5" placeholder="Why do you want to attend this AI Master Class?"></textarea>
+
+        <button type="submit">PROCEED TO PAYMENT - ₹190</button>
+      </form>
+
+      <div style="margin-top:40px;background:rgba(255,255,255,0.05);padding:30px;border-radius:25px;border:1px solid rgba(255,255,255,0.1);text-align:center;">
+        <h3 style="color:#00ffff;font-size:2rem;margin-bottom:20px;">Secure Payment Gateway</h3>
+        <p style="margin-bottom:25px;color:#ccc;">Complete your registration securely using Razorpay.</p>
+
+        <div style="display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Razorpay_logo.svg" alt="Razorpay" style="background:white;padding:15px;border-radius:15px;width:220px;">
+
+          <a href="https://rzp.io" target="_blank" class="btn primary-btn">
+            <i class="fa-solid fa-credit-card"></i>
+            Pay ₹190 Now
+          </a>
+        </div>
+
+        <p style="margin-top:20px;color:#aaa;font-size:0.95rem;">After payment, our team will confirm your registration through WhatsApp or Email.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="popup-register" id="popupRegister">
+    🚀 Seats Filling Fast! Register For The Event Now.
+  </div>
+
+  <div class="floating-icons">
+    <a href="https://wa.me/918220033325" target="_blank" class="whatsapp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <a href="https://www.instagram.com/menmozhi_technologies/" target="_blank" class="instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+  </div>
+
+  <section style="padding:70px 8%;">
+    <h2 class="section-title">Why Attend This AI Master Class?</h2>
+
+    <div class="cards">
+      <div class="card">
+        <i class="fa-solid fa-network-wired"></i>
+        <h3>Industry Networking</h3>
+        <p>Connect with AI professionals, entrepreneurs and innovators.</p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-certificate"></i>
+        <h3>Professional Certificate</h3>
+        <p>Boost your resume and LinkedIn profile with an official certificate.</p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-rocket"></i>
+        <h3>Future Career Growth</h3>
+        <p>Learn trending AI technologies that are shaping the future industries.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <h3>Menmozhi Technologies</h3>
+    <p>Official Website: www.menmozhi.com</p>
+    <p>© 2026 Menmozhi Technologies. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const popup = document.getElementById('popupRegister');
+
+    setTimeout(() => {
+      popup.style.display = 'block';
+    }, 300000);
+
+    setInterval(() => {
+      popup.style.display = 'block';
+
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 5000);
+
+    }, 20000);
+
+    const form = document.getElementById('registrationForm');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      alert('🎉 Registration Submitted Successfully! Our team will contact you soon.');
+
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
